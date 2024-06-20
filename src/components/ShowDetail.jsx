@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 const ShowDetail = () => {
-    const { id } = useParams(); // Destructure the id parameter from the URL
+    const { id } = useParams(); 
     const [show, setShow] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
