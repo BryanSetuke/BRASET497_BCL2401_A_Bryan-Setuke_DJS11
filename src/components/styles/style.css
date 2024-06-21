@@ -25,17 +25,12 @@ body {
     justify-content: space-between;
     width: 100%; /* Corrected to ensure navbar stretches across full width */
     box-sizing: border-box; /* Includes padding in width calculation */
+    z-index: 1000; /* Ensures the navbar stays on top */
 }
 
 .navbar-logo {
-    height: 35px;
-    /* Adjusted size of the logo */
+    height: 35px; /* Adjusted size of the logo */
 }
-/* .logo-container{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-} */
 
 .logo-text {
     font-family: "Rubik", sans-serif;
@@ -58,10 +53,8 @@ body {
     width: 200px; /* Adjust width as needed */
 }
 
-/* Remaining styles */
 .main-content {
     padding: 20px;
-    margin-top: 195rem;
 }
 
 .show-list {
@@ -93,12 +86,23 @@ body {
 }
 
 .audio-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
     margin: 20px 0;
 }
 
 .audio-player button {
-    display: block;
-    margin: 10px 0;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.audio-player input[type="range"] {
+    width: 100px;
 }
 
 .progress-bar {
@@ -119,11 +123,6 @@ body {
     height: 100vh;
 }
 
-.main-content {
-    flex-grow: 1;
-    padding: 20px;
-}
-
 .burger-menu {
     cursor: pointer;
     font-size: 24px; /* Adjust size as needed */
@@ -131,14 +130,13 @@ body {
 }
 
 .popup-menu {
-    margin-top: 25rem;
-    margin-right: 2rem;
     position: absolute;
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     width: 250px; /* Adjust width as needed */
     z-index: 1000;
     right: 0; /* Aligns the menu to the right of the burger icon */
+    margin-top: 25px;
 }
 
 .popup-menu ul {
@@ -187,7 +185,7 @@ body {
 }
 
 .podcast-card img {
-    width: %;
+    width: 100%; /* Corrected width to take full width of the card */
     height: auto;
 }
 
@@ -224,25 +222,6 @@ button {
     cursor: pointer;
 }
 
-.audio-player {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
-.audio-player button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.audio-player input[type="range"] {
-    width: 100px;
-}
-
 .genre {
     margin-bottom: 20px;
 }
@@ -251,3 +230,4 @@ button {
     color: #333;
     margin-bottom: 10px;
 }
+

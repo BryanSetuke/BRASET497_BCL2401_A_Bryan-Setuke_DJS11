@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Genre from "./Genre";
 
 const GenresGallery = ({ episodes }) => {
     const [groupedEpisodes, setGroupedEpisodes] = useState({});
 
     useEffect(() => {
+        if (!episodes) return;
+
         const groupByGenre = episodes.reduce((acc, episode) => {
             const { genre } = episode;
             if (!acc[genre]) {
