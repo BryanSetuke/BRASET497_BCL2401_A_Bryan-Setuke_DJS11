@@ -10,7 +10,7 @@ import AudioPlayer from "./components/AudioPlayer"; // Import AudioPlayer compon
 import "./components/styles/style.css";
 
 function App() {
-    const audioSrc = "path/to/your/audiofile.mp3"; // Replace with your actual audio file path
+    const audioSrc = " "; 
 
     return (
         <Router>
