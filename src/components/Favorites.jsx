@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Episode from "./Episode";
 
+// Initial episodes data
 const initialEpisodes = [
     {
         id: 1,
@@ -18,26 +19,28 @@ const initialEpisodes = [
 ];
 
 const Favorites = () => {
-    const [episodes, setEpisodes] = useState(initialEpisodes);
+    const [episodes, setEpisodes] = useState(initialEpisodes); // State to hold episodes data
 
+    // Function to handle toggling favorite status
     const handleFavoriteToggle = (selectedEpisode) => {
-        const updatedEpisodes = episodes.map((episode) => {
-            if (episode.id === selectedEpisode.id) {
-                return { ...episode, isFavorite: !episode.isFavorite };
-            }
-            return episode;
-        });
-        setEpisodes(updatedEpisodes);
+        // Update episodes state immutably
+        const updatedEpisodes = episodes.map((episode) =>
+            episode.id === selectedEpisode.id
+                ? { ...episode, isFavorite: !episode.isFavorite }
+                : episode
+        );
+        setEpisodes(updatedEpisodes); // Update state with updated episodes
     };
 
     return (
         <div>
             <h2>Episodes</h2>
+            {/* Render each episode using Episode component */}
             {episodes.map((episode) => (
                 <Episode
-                    key={episode.id}
-                    episode={episode}
-                    onFavoriteToggle={handleFavoriteToggle}
+                    key={episode.id} // Unique key for React reconciliation
+                    episode={episode} // Pass episode data as props
+                    onFavoriteToggle={handleFavoriteToggle} // Callback function for favorite toggle
                 />
             ))}
         </div>
