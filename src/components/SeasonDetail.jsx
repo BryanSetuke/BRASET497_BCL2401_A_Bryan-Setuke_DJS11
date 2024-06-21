@@ -17,7 +17,7 @@ const SeasonDetail = () => {
                 if (isMounted) {
                     setSeason(data);
                     setLoading(false);
-                }
+                 }
             } catch (err) {
                 if (isMounted) {
                     setError(err);
@@ -49,6 +49,8 @@ const SeasonDetail = () => {
                     <div key={episode.id} className="episode-item">
                         <Link to={`/episode/${episode.id}`}>
                             <h3>{episode.title}</h3>
+                            <p>{episode.seasons}</p>
+                            <p>{new Date(episode.updated).toLocaleDateString()}</p>
                         </Link>
                     </div>
                 ))}

@@ -17,7 +17,7 @@ const ShowDetail = () => {
                 const data = await fetchShowDetail(id);
                 if (isMounted) {
                     setShow(data);
-                    setLoading(false);
+                     setLoading(false);
                 }
             } catch (err) {
                 if (isMounted) {

@@ -1,19 +1,18 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Menu from "./components/Menu";
+import Navbar from "./components/Navbar";
 import MainContent from "./components/MainContent";
 import ShowDetail from "./components/ShowDetail";
 import SeasonDetail from "./components/SeasonDetail";
 import EpisodeDetail from "./components/EpisodeDetail";
 import "./components/styles/style.css";
+import Greeting from "./components/Greeting";
 
 function App() {
     return (
         <Router>
             <div className="app">
-                <Header />
-                <Menu />
+                <Navbar />
+                <Greeting />
                 <Routes>
                     <Route path="/" element={<MainContent />} />
                     <Route path="/show/:id" element={<ShowDetail />} />

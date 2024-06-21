@@ -14,7 +14,7 @@ const MainContent = () => {
         };
         getShows();
     }, []);
-
+ 
     if (loading) {
         return <div>Loading...</div>;
     }

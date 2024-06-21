@@ -17,7 +17,7 @@ const ShowList = () => {
             } finally {
                 setLoading(false);
             }
-        };
+        }; 
 
         loadShows();
     }, []);

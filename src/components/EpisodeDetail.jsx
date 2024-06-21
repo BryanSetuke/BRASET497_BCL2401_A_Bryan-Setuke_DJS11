@@ -11,7 +11,7 @@ const EpisodeDetail = () => {
 
     useEffect(() => {
         let isMounted = true;
-
+ 
         const getEpisodeDetail = async () => {
             try {
                 const data = await fetchEpisodeDetail(id);

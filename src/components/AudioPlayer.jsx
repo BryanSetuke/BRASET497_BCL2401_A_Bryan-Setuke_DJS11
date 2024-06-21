@@ -12,7 +12,7 @@ const AudioPlayer = ({ src }) => {
             audioRef.current.play();
         }
         setIsPlaying(!isPlaying);
-    };
+    }; 
 
     const handleTimeUpdate = () => {
         const currentTime = audioRef.current.currentTime;
