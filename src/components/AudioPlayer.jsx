@@ -1,57 +1,52 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 const AudioPlayer = ({ src }) => {
-    const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [progress, setProgress] = useState(0);
+    const audioRef = useRef(null);
 
-    const togglePlay = () => {
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
+    const togglePlayPause = () => {
+        const prevValue = isPlaying;
+        setIsPlaying(!prevValue);
+        if (!prevValue) {
             audioRef.current.play();
+        } else {
+            audioRef.current.pause();
         }
-        setIsPlaying(!isPlaying);
-    }; 
-
-    const handleTimeUpdate = () => {
-        const currentTime = audioRef.current.currentTime;
-        const duration = audioRef.current.duration;
-        setProgress((currentTime / duration) * 100);
     };
 
-    const handleAudioEnd = () => {
+    const stopPlayback = () => {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
         setIsPlaying(false);
-        setProgress(0);
     };
 
-    useEffect(() => {
-        const audio = audioRef.current;
-        audio.addEventListener("ended", handleAudioEnd);
-        return () => {
-            audio.removeEventListener("ended", handleAudioEnd);
-        };
-    }, []);
+    const fastForward = () => {
+        audioRef.current.currentTime += 10;
+    };
+
+    const adjustVolume = (e) => {
+        audioRef.current.volume = e.target.value;
+    };
 
     return (
         <div className="audio-player">
-            <audio
-                ref={audioRef}
-                src={src}
-                onTimeUpdate={handleTimeUpdate}
-            ></audio>
-            <button
-                onClick={togglePlay}
-                aria-label={isPlaying ? "Pause" : "Play"}
-            >
+            <audio ref={audioRef} src={src} />
+            <button onClick={togglePlayPause}>
                 {isPlaying ? "Pause" : "Play"}
             </button>
-            <div className="progress-bar">
-                <div
-                    className="progress"
-                    style={{ width: `${progress}%` }}
-                ></div>
-            </div>
+            <button onClick={stopPlayback}>Stop</button>
+            <button onClick={fastForward}>Fast Forward 10s</button>
+            <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                onChange={adjustVolume}
+                defaultValue="1"
+            />
+            <a href={src} download>
+                <button>Download</button>
+            </a>
         </div>
     );
 };

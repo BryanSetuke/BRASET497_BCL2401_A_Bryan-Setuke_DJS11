@@ -1,6 +1,6 @@
 import  { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo-icon.jpg";
+import logo from "../assets/logo-icon.png";
 import "./styles/style.css"; // Ensure this is the correct path to your CSS file
 
 const Navbar = () => {
@@ -40,9 +40,6 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <div className="burger-menu" onClick={toggleMenu}>
-                &#9776; {/* Burger Menu Icon */}
-            </div>
             <div className="logo-container">
                 <Link to="/">
                     <img
@@ -59,6 +56,9 @@ const Navbar = () => {
             <div className="theme-toggle" onClick={toggleTheme}>
                 {isDarkMode ? "🌜" : "🌞"}{" "}
                 {/* Conditional rendering for theme icon */}
+            </div>
+            <div className="burger-menu" onClick={toggleMenu}>
+                &#9776; {/* Burger Menu Icon */}
             </div>
             {isMenuOpen && (
                 <div className="popup-menu" ref={menuRef}>

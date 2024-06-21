@@ -11,7 +11,7 @@ const EpisodeDetail = () => {
 
     useEffect(() => {
         let isMounted = true;
- 
+
         const getEpisodeDetail = async () => {
             try {
                 const data = await fetchEpisodeDetail(id);
@@ -40,6 +40,10 @@ const EpisodeDetail = () => {
 
     if (error) {
         return <div>Error loading episode details: {error.message}</div>;
+    }
+
+    if (!episode) {
+        return <div>No episode data available.</div>;
     }
 
     return (

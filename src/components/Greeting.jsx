@@ -1,8 +1,9 @@
-// Greeting.jsx
 import React from "react";
 
 const Greeting = () => {
     const hours = new Date().getHours();
+    console.log("Current hour:", hours); // This line logs the current hour to the console
+
     const greeting =
         hours < 12 ? "Morning" : hours < 17 ? "Afternoon" : "Evening";
 
