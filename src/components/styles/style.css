@@ -19,7 +19,7 @@ body {
   top: 0;
   display: flex;
   align-items: center;
-  background-color: #1db954;
+  background-color: #3919a3;
   padding: 20px; /* Adjust padding as needed */
   justify-content: space-between;
   width: 428%; /* Corrected to ensure navbar stretches across full width */
